@@ -1,0 +1,4 @@
+./hashdata.txt  da39a3ee5e6b4b0d3255bfef95601890afd80709  d41d8cd98f00b204e9800998ecf8427e
+./utils/fs-demo.js  56aad011f89f8dd3b1b4dbf5116fec86e762cf5e  7c839c4108dbd86bdf9326f4716604d0
+./utils/nestedDir/readme.md  23149ed877ae24fc61035b7342801540ecf31c81  ec9c96e09bf41a52f4d83ba4f415be44
+./utils/nestedDir/TestDir/readmeTest.md  7e828aa726c10dec84914ccd7d1a5a955a843e9a  73c35593dcf338736e09d97bdf98bcd7
