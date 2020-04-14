@@ -1,0 +1,61 @@
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<body onload="getPost()">
+
+
+    <div class="jumbotron">
+        <div class="row second_row">
+            <div class="col-xs-4">
+                <div class="centering-box">
+                    <img src="http://localhost:3000/images/fb.png" height="42" width="42" />
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="centering-box">
+                    <p id="email"></p>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="centering-box">
+                    <a href="/api/signout" id="signout">SIGNOUT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <center>
+        <div class="login-form">
+            <h1>Add Post</h1>
+            <form action="api/posts/new" method="POST">
+                <input type="text" name="newPost" placeholder="writepost" required>
+                <input type="submit">
+            </form>
+        </div>
+        <div id="posts">hii</div>
+    </center>
+
+
+    <script>
+        function getPost() {
+            fetch(`http://localhost:3000/api/user`).then((data) => {
+                data.json().then((jsonData) => {
+                    document.getElementById("email").innerHTML = jsonData.email;
+                });
+            });
+            const url = `http://localhost:3000/api/posts`;
+
+            const res = document.getElementById("posts");
+
+            fetch(url).then((data) => {
+                data.json().then((jsonData) => {
+                    res.innerText = jsonData.message;
+                });
+
+            });
+        }
+    </script>
+</body>
+
+</html>

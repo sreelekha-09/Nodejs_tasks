@@ -1,0 +1,61 @@
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<body onload="onUser()">
+    <div class="jumbotron">
+        <div class="row second_row">
+            <div class="col-xs-4">
+                <div class="centering-box">
+                    <img src="http://localhost:3000/images/fb.png" height="42" width="42" />
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="centering-box">
+                    <p id="email"></p>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="centering-box">
+                    <a href="/api/signout" id="signout"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+    <center>
+        <div>
+            <h3>Welcome to Facebook</h3>
+        </div>
+        <div>
+            <form action="login" method="GET">
+                <button class="btn btn-primary" id="myButton">Login</button>
+            </form>
+        </div>
+
+    </center>
+
+
+    <script>
+        function onUser() {
+            fetch(`http://localhost:3000/api/user`).then((data) => {
+                console.log(data);
+                data.json().then((jsonData) => {
+                    console.log(jsonData);
+                    if (jsonData !== undefined) {
+                        document.getElementById("email").innerText = jsonData.email;
+                        document.getElementById("signout").innerText = "SIGNOUT"
+                        document.getElementById("myButton").innerText = "MyProfile";
+                    }
+                })
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>

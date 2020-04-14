@@ -1,0 +1,36 @@
+{
+    "Postdata": [
+        {
+            "username": "sree",
+            "postContent": "my first post"
+        },
+        {
+            "username": "sree",
+            "postContent": "my second post"
+        },
+        {
+            "username": "sree",
+            "postContent": "my third post"
+        },
+        {
+            "username": "harsha",
+            "postContent": "my first post"
+        },
+        {
+            "username": "harsha",
+            "postContent": "my second post"
+        },
+        {
+            "username": "sree",
+            "postContent": "my first blogg"
+        },
+        {
+            "username": "sree",
+            "postContent": "my second blogg"
+        },
+        {
+            "username": "sree",
+            "postContent": "my third blog"
+        }
+    ]
+}
