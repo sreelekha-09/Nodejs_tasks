@@ -20,7 +20,7 @@ router.get('/user', tokenMiddleware, function (req, res, next) {
 router.post('/auth', function (req, res, next) {
   const credentials = req.body
   const username = req.body.username;
-  const url = `http://localhost:3000/${username}`;
+  const url = `/${username}`;
   if (!credentials.username || !credentials.password) {
     return res.status(400).send({ status: 'not ok' });
   }
@@ -48,7 +48,6 @@ router.get("/posts", function (req, res, next) {
 
 
   }
-  console.log(userPosts);
   const postsResult = JSON.stringify({ message: userPosts });
   return res.send(postsResult);
 });
@@ -61,7 +60,7 @@ router.post('/posts/new', tokenMiddleware, function (req, res, next) {
 
     var posts = JSON.parse(data);
     console.log(posts.Postdata[0]);
-    posts.Postdata.push({
+    posts.Postdata.unshift({
       username: user,
       postContent: content
     });
@@ -71,12 +70,11 @@ router.post('/posts/new', tokenMiddleware, function (req, res, next) {
     });
 
   })
-
-  res.redirect(`http://localhost:3000/${user}`);
+  res.redirect(`/${user}`);
 });
 router.get("/signout", function (req, res, next) {
   res.clearCookie("username");
   res.clearCookie("token");
-  res.redirect(`http://localhost:3000`);
+  res.redirect(`/`);
 })
 module.exports = router;
