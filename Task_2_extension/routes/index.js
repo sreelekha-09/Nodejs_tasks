@@ -11,7 +11,7 @@ const db = require('../helpers/db');
 router.get('/login', function (req, res, next) {
   if (req.cookies['username'] !== undefined) {
     const username = req.cookies['username'];
-    const url = `http://localhost:3000/${username}`;
+    const url = `/${username}`;
     res.redirect(url);
   }
   else {
@@ -23,7 +23,7 @@ router.get('/login', function (req, res, next) {
 
 router.get('/:username', function (req, res, next) {
   if (req.cookies['username'] === undefined) {
-    res.redirect(`http://localhost:3000/login`);
+    res.redirect(`/login`);
   }
   else {
     res.sendFile(path.join(__dirname, '../', 'public', 'userprofile.html'));
